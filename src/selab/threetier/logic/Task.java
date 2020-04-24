@@ -5,7 +5,6 @@ import selab.threetier.storage.Storage;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 public class Task extends Entity {
     private String title;
@@ -30,6 +29,9 @@ public class Task extends Entity {
 
     public void save() {
         Storage.getInstance().getTasks().addOrUpdate(this);
+    }
+    public void delete() {
+        Storage.getInstance().getTasks().remove(this);
     }
 
     public static ArrayList<Task> getAll() {
